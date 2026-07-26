@@ -42,7 +42,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               onClick={() => document.getElementById("sobre-mi")?.scrollIntoView({ behavior: "smooth" })}
-              className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6"
+              className="border-2 border-white text-gray hover:bg-white hover:text-primary text-lg px-8 py-6"
             >
               Conocer más
             </Button>

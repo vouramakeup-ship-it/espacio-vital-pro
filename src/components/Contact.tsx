@@ -24,19 +24,19 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "contacto@psicologia.com",
-      link: "mailto:contacto@psicologia.com",
+      value: "suarezcarvajaltaniasofi@gmail.com",
+      link: "mailto:suarezcarvajaltaniasofi@gmail.com",
     },
     {
       icon: Phone,
       title: "Teléfono",
-      value: "+34 600 123 456",
-      link: "tel:+34600123456",
+      value: "+57 322 508 5018",
+      link: "tel:+573225085018",
     },
     {
       icon: MapPin,
       title: "Ubicación",
-      value: "Madrid, España",
+      value: "Bucaramanga, Santander",
       link: "#",
     },
   ];
@@ -97,7 +97,7 @@ const Contact = () => {
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="+34 600 123 456"
+                  placeholder="+57 300 532 1234"
                   className="border-input"
                 />
               </div>
