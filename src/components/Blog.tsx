@@ -1,31 +1,18 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { blogPosts, type BlogPost } from "@/data/blogPosts";
 
 const Blog = () => {
-  const posts = [
-    {
-      title: "5 Técnicas de Mindfulness para el Día a Día",
-      excerpt: "Descubre cómo incorporar la atención plena en tu rutina diaria para reducir el estrés y mejorar tu bienestar.",
-      date: "15 Mar 2024",
-      readTime: "5 min",
-      category: "Mindfulness",
-    },
-    {
-      title: "Cómo Identificar y Manejar la Ansiedad",
-      excerpt: "Aprende a reconocer los síntomas de ansiedad y técnicas efectivas para gestionarla de manera saludable.",
-      date: "08 Mar 2024",
-      readTime: "7 min",
-      category: "Salud Mental",
-    },
-    {
-      title: "La Importancia de la Autocompasión",
-      excerpt: "Ser amable contigo mismo/a es fundamental para tu salud emocional. Descubre por qué y cómo practicarla.",
-      date: "01 Mar 2024",
-      readTime: "6 min",
-      category: "Desarrollo Personal",
-    },
-  ];
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
 
   return (
     <section id="blog" className="py-20 bg-gradient-subtle">
@@ -41,9 +28,10 @@ const Blog = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {posts.map((post, index) => (
+          {blogPosts.map((post, index) => (
             <Card
-              key={index}
+              key={post.slug}
+              onClick={() => setSelectedPost(post)}
               className="overflow-hidden hover:shadow-soft transition-all duration-300 group cursor-pointer border-border bg-card animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -70,6 +58,10 @@ const Blog = () => {
                 </p>
                 <Button
                   variant="ghost"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedPost(post);
+                  }}
                   className="text-primary hover:text-primary/80 p-0 h-auto font-semibold group/btn"
                 >
                   Leer más
@@ -80,6 +72,44 @@ const Blog = () => {
           ))}
         </div>
       </div>
+
+      <Dialog
+        open={selectedPost !== null}
+        onOpenChange={(open) => !open && setSelectedPost(null)}
+      >
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+          {selectedPost && (
+            <>
+              <DialogHeader>
+                <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-2">
+                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                    {selectedPost.category}
+                  </span>
+                  <div className="flex items-center gap-1">
+                    <Calendar className="h-4 w-4" />
+                    <span>{selectedPost.date}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-4 w-4" />
+                    <span>{selectedPost.readTime}</span>
+                  </div>
+                </div>
+                <DialogTitle className="font-serif text-2xl md:text-3xl text-left text-foreground">
+                  {selectedPost.title}
+                </DialogTitle>
+                <DialogDescription className="text-left text-base">
+                  {selectedPost.excerpt}
+                </DialogDescription>
+              </DialogHeader>
+              <article className="space-y-4 text-muted-foreground leading-relaxed">
+                {selectedPost.content.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+              </article>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
