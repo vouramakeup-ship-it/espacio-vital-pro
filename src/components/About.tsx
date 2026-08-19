@@ -6,7 +6,7 @@ const About = () => {
     {
       icon: GraduationCap,
       title: "Formación Profesional",
-      description: "Licenciatura en Psicología con especialización en terapia cognitivo-conductual",
+      description: "Psicología con especialización en terapia cognitivo-conductual",
     },
     {
       icon: Heart,

@@ -24,8 +24,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "suarezcarvajaltaniasofi@gmail.com",
-      link: "mailto:suarezcarvajaltaniasofi@gmail.com",
+      value: "suarezcarvajaltaniasofia@gmail.com",
+      link: "mailto:suarezcarvajaltaniasofia@gmail.com",
     },
     {
       icon: Phone,

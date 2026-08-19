@@ -77,7 +77,7 @@ const Services = () => {
               <span className="font-semibold">Modalidad:</span> Presencial y Online
             </p>
             <p className="text-muted-foreground mt-2">
-              Sesiones de 50 minutos | Horarios flexibles
+              Sesiones de 45 minutos | Horarios flexibles
             </p>
           </Card>
         </div>

@@ -67,7 +67,7 @@ const Footer = () => {
             <ul className="space-y-2 text-background/80">
               <li>Bucaramanga, Santander</li>
               <li>+57 322 508 5018</li>
-              <li>suarezcarvajaltaniasofi@gmail.com</li>
+              <li>suarezcarvajaltaniasofia@gmail.com</li>
             </ul>
             <div className="mt-4 pt-4 border-t border-background/20">
               <p className="text-sm text-background/70">

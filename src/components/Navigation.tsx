@@ -37,7 +37,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#" className="font-serif text-2xl font-bold text-foreground">
-            Psicología<span className="text-primary">.</span>
+            Tania Suarez  Psicóloga Profesional<span className="text-primary">.</span>
           </a>
 
           {/* Desktop Navigation */}
